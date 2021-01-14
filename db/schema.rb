@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_01_14_065919) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "relationships", force: :cascade do |t|
-    t.integer "owner_id"
-    t.integer "user_id"
+    t.bigint "owner_id"
+    t.bigint "user_id"
     t.index ["owner_id"], name: "index_relationships_on_owner_id"
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
